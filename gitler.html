@@ -1,0 +1,49 @@
+﻿
+
+<?php
+
+
+
+class stullen
+{
+    
+function essen()
+    {
+        echo "ist alle Stullen aleine"; 
+    }
+}
+
+
+class heuelsusen
+{
+public $name;  
+public $zusatz;  
+public $ende;     
+function weint()
+    {
+        echo "weine laut"; 
+    }
+function schreit()
+    {
+        echo "schreit"; 
+    }
+}
+
+
+
+$heulsuseivan = new heuelsusen();
+$heulsusegary = new heuelsusen();
+$heulsuseivan->name = 'Ivan';
+$heulsusegary->name = 'Gary';
+$heulsuseivan->weint();
+$heulsuseivan->zusatz = 'und';
+$heulsuseivan->schreit();
+$heulsuseivan->ende = 'auf dem Klo';
+
+echo $heulsuseivan->name;
+echo $heulsuseivan->weint();
+echo $heulsuseivan->zusatz;
+echo $heulsuseivan->schreit();
+echo $heulsuseivan->ende;
+  
+?>
