@@ -35,4 +35,4 @@ $character = $connector->getCharacterById($characterId);
   <input type="submit">
 </form>
 
-<a href='/characterselection.php'>Zur&uuml;rck</a>
+<a href='characterselection.php'>Zur&uuml;rck</a>

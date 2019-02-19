@@ -50,19 +50,39 @@ class MysqlConnector {
 }
 
 
+/*
+* Diese Methode vergelicht das passwort das eingegeben wurde, und gibt einen
+* boolean zurück ob das apsswort richtig ist oder falsch
+*/
+public function getUserForEmail($email){
+  $sql = "SELECT * FROM user WHERE email_address = '$email';";
+  $result = $this->connection->query($sql);
+  $row = $result->fetch_assoc();
+  $user = new user($row['email_address'], $row['id'], $row['first_name']);
+  return  $user;
+}
+
+
+  /*
+  * Diese Methode vergelicht das passwort das eingegeben wurde, und gibt einen
+  * boolean zurück ob das apsswort richtig ist oder falsch
+  */
   public function checkpassword($email,$userpassword){
-    $sql = "SELECT id FROM user WHERE email_address = '$email' AND password_hash = SHA('$userpassword');";
+    $sql = "SELECT * FROM user WHERE email_address = '$email';";
     $result = $this->connection->query($sql);
-    return $result->num_rows > 0 ? $result->fetch_assoc() : null;
+    $row = $result->fetch_assoc();
+    $verschluesseltespasswordausdb = $row['password_hash'];
+    $iscorrect = password_verify($userpassword, $verschluesseltespasswordausdb);
+    return  $iscorrect;
   }
 
   /* Schreiben der Daten in die Datenbank */
   public function insertUser($email, $password, $firstname, $lastname, $birthdate){
       //SQL sollte so aussehen INSERT INTO user ( email, password ) VALUES ('trap@sae.de', SHA('drogenverwalter'));
       //INSERT INTO user ( email, password ) VALUES ('niclas@sae.de', SHA('traprockt'));
-
+      $encrytedpassword = password_hash($password, PASSWORD_DEFAULT);
       $sqlinsert = "INSERT INTO user ( email_address, password_hash, first_name, last_name, birth_date) " // bauen das SQL, das wir nutzen, um den
-      . " VALUES ('".$email."', SHA('" .$password. "'), '$firstname', '$lastname', '$birthdate');";         //Benutzer in die Datenbank zu schreiben als String
+      . " VALUES ('".$email."','$encrytedpassword', '$firstname', '$lastname', '$birthdate');";         //Benutzer in die Datenbank zu schreiben als String
 
       if ($this->connection->query($sqlinsert) === TRUE) { //query führt das SQL auf der Datenbank aus
           echo "New record created successfully";

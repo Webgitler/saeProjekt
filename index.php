@@ -1,4 +1,5 @@
 <?php
+echo __DIR__. '/lib/bootstrap.php';
 require_once __DIR__ . '/lib/bootstrap.php';
 ?>
 <h2>Login</h2>

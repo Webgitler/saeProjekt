@@ -1,16 +1,18 @@
 <?php
 require_once __DIR__ . '/lib/bootstrap.php';
 $connector = newConnector();
-$user = $connector->checkpassword($_POST['username'],$_POST['password']);
+$ispasswordcorrect = $connector->checkpassword($_POST['username'],$_POST['password']);
 
-if($user === null){
+if($ispasswordcorrect === false){
   ?>
-  <p>Login failed!</p>
+  <p>Login failed! Passwort not correct</p>
   <a href="/index.php">Zur&uuml;rck</a>
   <?php
   exit;
 }else{
-  $_SESSION['user'] = $user['id'];
+  error_log("Writing User to Session");
+  $user = $connector->getUserForEmail($_POST['username']);
+  $_SESSION['user'] = $user;
   echo 'eingeloggt'; ?>
     <a href="/modeselection.php">Weiter</a>
     <?php
