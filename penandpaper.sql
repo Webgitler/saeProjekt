@@ -143,7 +143,11 @@ CREATE TABLE `character` (
                                                                                     CREATE TABLE `user` (
                                                                                       `id` int(11) NOT NULL,
                                                                                         `email_address` varchar(255) NOT NULL,
+<<<<<<< HEAD
                                                                                           `password_hash` varchar(255) NOT NULL,
+=======
+                                                                                          `password_hash` varchar(40) NOT NULL,
+>>>>>>> fc2dbc603f127271c63add6bdb6118712b98be49
                                                                                             `birth_date` datetime NOT NULL,
                                                                                               `first_name` varchar(60) NOT NULL,
                                                                                                 `last_name` varchar(60) NOT NULL
@@ -282,3 +286,7 @@ CREATE TABLE `character` (
                                                                                                                                             --
                                                                                                                                             ALTER TABLE `character_weapons`
                                                                                                                                               ADD CONSTRAINT `character_weapons_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `character` (`id`);
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc2dbc603f127271c63add6bdb6118712b98be49
