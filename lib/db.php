@@ -131,9 +131,37 @@ public function getUserForEmail($email){
 
   /* Alle Character holen, goibt uns einen Liste mit Objekten von Charactern */
   public function deleteCharacter($characterId){
+      $this->deleteCharacterSkills($characterId);
+      $this->deleteCharacterTunderpoints($characterId);
+      $this->deleteCharacterWeapons($characterId);
+      $this->deleteCharacterInventory($characterId);
       $sql = "DELETE FROM `character` WHERE id = $characterId;"; // bauen das SQL, das wir nutzen, um den
+      echo "$sql";
       return $this->connection->query($sql) === TRUE;
   }
+
+
+  public function deleteCharacterSkills($characterId){
+      $sql = "DELETE FROM `character_skill` WHERE character_id = $characterId;"; // bauen das SQL, das wir nutzen, um den
+      return $this->connection->query($sql) === TRUE;
+  }
+
+    public function deleteCharacterTunderpoints($characterId){
+        $sql = "DELETE FROM `character_thunderpoints` WHERE character_id = $characterId;"; // bauen das SQL, das wir nutzen, um den
+        return $this->connection->query($sql) === TRUE;
+    }
+
+
+    public function deleteCharacterWeapons($characterId){
+        $sql = "DELETE FROM `character_weapons` WHERE character_id = $characterId;"; // bauen das SQL, das wir nutzen, um den
+        return $this->connection->query($sql) === TRUE;
+    }
+
+
+        public function deleteCharacterInventory($characterId){
+            $sql = "DELETE FROM `character_inventory` WHERE character_id = $characterId;"; // bauen das SQL, das wir nutzen, um den
+            return $this->connection->query($sql) === TRUE;
+        }
 
   /* Alle Character holen, goibt uns einen Liste mit Objekten von Charactern */
   public function getCharacterById($id){

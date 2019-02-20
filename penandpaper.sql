@@ -23,13 +23,13 @@ USE `penandpapercms`;
 --
 
 CREATE TABLE `character` (
-  `id` int(11) NOT NULL,
-    `user_id` int(11) DEFAULT NULL,
-      `name` varchar(255) NOT NULL,
-        `created_at` datetime NOT NULL,
-          `last_login` datetime DEFAULT NULL,
-            `religion` varchar(50) NOT NULL,
-              `age` int(11) NOT NULL,
+`id` int(11) NOT NULL,
+`user_id` int(11) DEFAULT NULL,
+`name` varchar(255) NOT NULL,
+`created_at` datetime NOT NULL,
+`last_login` datetime DEFAULT NULL,
+`religion` varchar(50) NOT NULL,
+`age` int(11) NOT NULL,
                 `gender` varchar(50) NOT NULL,
                   `profession` varchar(50) NOT NULL,
                     `figure` varchar(50) NOT NULL,

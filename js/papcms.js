@@ -1,8 +1,8 @@
 
 
-document.getElementById('opennwefeldfertigkeit').onclick = function () {
-    if (document.getElementById('openfeld')) {
-        var fertigkeitenfeld = document.getElementById('openfeld');
+document.getElementById('loginopen').onclick = function () {
+    if (document.getElementById('openlogin')) {
+        var fertigkeitenfeld = document.getElementById('openlogin');
         fertigkeitenfeld.style.visibility = 'visible';
 
 
@@ -10,10 +10,9 @@ document.getElementById('opennwefeldfertigkeit').onclick = function () {
 }
 
 
-
 document.getElementById('close').onclick = function () {
-    if (document.getElementById('openfeld')) {
-        var fertigkeitenfeld = document.getElementById('openfeld');
+    if (document.getElementById('openlogin')) {
+        var fertigkeitenfeld = document.getElementById('openlogin');
         fertigkeitenfeld.style.visibility = 'hidden';
 
 
@@ -21,39 +20,22 @@ document.getElementById('close').onclick = function () {
 }
 
 
+document.getElementById('newaccopen').onclick = function () {
+    if (document.getElementById('opennewacc')) {
+        var newaccopen = document.getElementById('opennewacc');
+        newaccopen.style.visibility = 'visible';
 
 
-
-
-/*
-document.getElementById('imgauswahl').onclick = function () {
-  if (document.getElementById('work')) {
-  document.getElementById('work').innerHTML = '<img src="img/brtor.jpg" alt="" class="img" id="imgauswahl">';
-  document.getElementById('work').style.marginLeft = "60px" ;
-} else {
-  console.log('Kein Element');
     }
 }
 
 
 
-function hide(event) {
-  var target = event.target || event.srcElement;
-  target.style.visibility = 'hidden';
-}
-
-var foo = document.getElementById('foo');
-var jochen = document.getElementsByClassName('img')
-for (i = 0; i < jochen.length; ++i ){
-  jochen[i].onclick= function(e){
-    hide(e);
-  }
+document.getElementById('close2').onclick = function () {
+    if (document.getElementById('opennewacc')) {
+        var fertigkeitenfeld = document.getElementById('opennewacc');
+        fertigkeitenfeld.style.visibility = 'hidden';
 
 
+    }
 }
-*/
-/*
-document.getElementsByClassName('img').onclick = function (e) {
-hide(e);
-}
-*/

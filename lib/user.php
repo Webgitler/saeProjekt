@@ -13,3 +13,4 @@ class User {
       $this->first_name = $firstname;
   }
 }
+?>
